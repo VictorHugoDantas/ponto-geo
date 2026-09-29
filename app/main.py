@@ -40,7 +40,7 @@ async def cabecalhos_seguranca(request: Request, call_next):
     resposta = await call_next(request)
     resposta.headers["X-Content-Type-Options"] = "nosniff"
     resposta.headers["X-Frame-Options"] = "DENY"
-    resposta.headers["Referrer-Policy"] = "same-origin"
+    resposta.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
     resposta.headers["Permissions-Policy"] = "geolocation=(self), camera=(), microphone=()"
     return resposta
 
