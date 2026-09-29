@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ponto Geo · Admin</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<main>
+  <h1>Painel administrativo</h1>
+  <p class="sub">Gerencie funcionários, locais permitidos e consulte os registros.</p>
+
+  <div class="card" id="login">
+    <label for="token">Token de administrador</label>
+    <div class="linha">
+      <input id="token" type="password" autocomplete="current-password">
+      <button id="entrar">Entrar</button>
+    </div>
+    <div id="login-status" class="status"></div>
+  </div>
+
+  <div id="painel" class="escondido">
+    <div class="card">
+      <h2>Registros</h2>
+      <div class="linha">
+        <div><label for="f-dia">Dia</label><input id="f-dia" type="date"></div>
+        <div><label for="f-mat">Matrícula</label><input id="f-mat"></div>
+        <button id="filtrar">Filtrar</button>
+        <button id="csv" class="secundario">Exportar CSV</button>
+      </div>
+      <div class="tabela-wrap" style="margin-top:16px">
+        <table>
+          <thead><tr><th>Data/hora</th><th>Nome</th><th>Tipo</th><th>Status</th><th>Motivo</th><th>Distância</th><th>Precisão</th><th>IP</th></tr></thead>
+          <tbody id="registros"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Locais permitidos</h2>
+      <p class="sub" style="margin-bottom:12px">Clique no mapa para preencher latitude e longitude.</p>
+      <div id="mapa" style="margin-bottom:12px"></div>
+      <div class="linha">
+        <div><label for="l-nome">Nome</label><input id="l-nome" placeholder="Sede"></div>
+        <div><label for="l-lat">Latitude</label><input id="l-lat" type="number" step="any"></div>
+        <div><label for="l-lon">Longitude</label><input id="l-lon" type="number" step="any"></div>
+        <div><label for="l-raio">Raio (m)</label><input id="l-raio" type="number" value="150"></div>
+        <button id="add-local">Adicionar</button>
+      </div>
+      <div class="tabela-wrap" style="margin-top:16px">
+        <table>
+          <thead><tr><th>Nome</th><th>Latitude</th><th>Longitude</th><th>Raio</th><th></th></tr></thead>
+          <tbody id="locais"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Funcionários</h2>
+      <div class="linha">
+        <div><label for="fn-nome">Nome</label><input id="fn-nome"></div>
+        <div><label for="fn-mat">Matrícula</label><input id="fn-mat"></div>
+        <button id="add-func">Adicionar</button>
+      </div>
+      <div class="tabela-wrap" style="margin-top:16px">
+        <table>
+          <thead><tr><th>Nome</th><th>Matrícula</th><th>Ativo</th></tr></thead>
+          <tbody id="funcionarios"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="/static/admin.js"></script>
+</body>
+</html>

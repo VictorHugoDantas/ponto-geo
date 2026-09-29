@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ponto Geo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<main>
+  <h1>Ponto Geo</h1>
+  <p class="sub">Registro de ponto validado pela sua localização.</p>
+
+  <div class="card">
+    <div class="relogio" id="relogio">--:--:--</div>
+    <div class="sub" id="data" style="margin:0"></div>
+  </div>
+
+  <div class="card">
+    <label for="matricula">Matrícula</label>
+    <input id="matricula" autocomplete="username" placeholder="Ex.: 1001">
+    <button id="bater" class="grande">Bater ponto</button>
+    <div id="status" class="status"></div>
+  </div>
+
+  <div class="card">
+    <h2>Sua posição e áreas permitidas</h2>
+    <div id="mapa"></div>
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>
